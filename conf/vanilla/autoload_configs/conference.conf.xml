@@ -3,7 +3,7 @@
 <configuration name="conference.conf" description="Audio Conference">
   <!-- Advertise certain presence on startup . -->
   <advertise>
-    <room name="3001@$${domain}" status="FreeSWITCH"/>
+    <room name="1500@$${domain}" status="FreeSWITCH"/>
   </advertise>
 
   <!-- These are the default keys that map when you do not specify a caller control group -->	
@@ -73,7 +73,7 @@
       <!-- File to play to acknowledge unmuted -->
       <param name="unmuted-sound" value="conference/conf-unmuted.wav"/>
       <!-- File to play if you are alone in the conference -->
-      <param name="alone-sound" value="conference/conf-alone.wav"/>
+      <!-- <param name="alone-sound" value="conference/conf-alone.wav"/> -->
       <!-- File to play endlessly (nobody will ever be able to talk) -->
       <!-- <param name="perpetual-sound" value="perpetual.wav"/> -->
       <!-- File to play when you're alone (music on hold)-->
@@ -100,9 +100,9 @@
       <!-- Max number of times the user can be prompted for PIN -->
       <!-- <param name="pin-retries" value="3"/> -->
       <!-- Default Caller ID Name for outbound calls -->
-      <param name="caller-id-name" value="$${outbound_caller_name}"/>
+      <param name="caller-id-name" value="+13023973834"/>
       <!-- Default Caller ID Number for outbound calls -->
-      <param name="caller-id-number" value="$${outbound_caller_id}"/>
+      <param name="caller-id-number" value="+13023973834"/>
       <!-- Suppress start and stop talking events -->
       <!-- <param name="suppress-events" value="start-talking,stop-talking"/> -->
       <!-- enable comfort noise generation -->

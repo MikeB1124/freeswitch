@@ -1,0 +1,12 @@
+<include>
+  <gateway name="twilio-primary">
+    <!--<param name="tls-version" value="tlsv1.2"/>-->
+    <!--<param name="register-transport" value="tls"/>-->
+    <param name="proxy" value="freeswitchdev1.pstn.twilio.com:5060"/>
+    <param name="username" value="freeswitchdev"/>
+    <param name="password" value="Freeswitchtwiliodev1"/>
+    <param name="caller-id-in-from" value="true"/>
+    <param name="register" value="false"/>
+    <param name="ping" value="25"/>
+  </gateway>
+</include>

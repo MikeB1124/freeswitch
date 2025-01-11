@@ -90,8 +90,8 @@
     <param name="sip-port" value="$${internal_sip_port}"/>
     <param name="dialplan" value="XML"/>
     <param name="dtmf-duration" value="2000"/>
-    <param name="inbound-codec-prefs" value="$${global_codec_prefs}"/>
-    <param name="outbound-codec-prefs" value="$${global_codec_prefs}"/>
+    <param name="inbound-codec-prefs" value="PCMU"/>
+    <param name="outbound-codec-prefs" value="PCMU"/>
     <param name="rtp-timer-name" value="soft"/>
     <!-- ip address to use for rtp, DO NOT USE HOSTNAMES ONLY IP ADDRESSES -->
     <param name="rtp-ip" value="$${local_ip_v4}"/>
@@ -179,9 +179,9 @@
     <!-- Can be 'true' or 'contact' -->
     <!--<param name="multiple-registrations" value="contact"/>-->
     <!--set to 'greedy' if you want your codec list to take precedence -->
-    <param name="inbound-codec-negotiation" value="generous"/>
+    <param name="inbound-codec-negotiation" value="greedy"/>
     <!-- if you want to send any special bind params of your own -->
-    <!--<param name="bind-params" value="transport=udp"/>-->
+    <param name="bind-params" value="transport=udp"/>
     <!--<param name="unregister-on-options-fail" value="true"/>-->
     <!-- Send an OPTIONS packet to all registered endpoints -->
     <!--<param name="all-reg-options-ping" value="true"/>-->
@@ -249,7 +249,7 @@
     <!--<param name="inbound-proxy-media" value="true"/>-->
 
     <!-- Let calls hit the dialplan before selecting codec for the a-leg -->
-    <param name="inbound-late-negotiation" value="true"/>
+    <param name="inbound-late-negotiation" value="false"/>
 
     <!-- this lets anything register -->
     <!--  comment the next line and uncomment one or both of the other 2 lines for call authentication -->
@@ -276,7 +276,7 @@
     <!--<param name="NDLB-broken-auth-hash" value="true"/>-->
     <!-- add a ;received="<ip>:<port>" to the contact when replying to register for nat handling -->
     <!--<param name="NDLB-received-in-nat-reg-contact" value="true"/>-->
-    <param name="auth-calls" value="$${internal_auth_calls}"/>
+    <param name="auth-calls" value="true"/>
     <!-- Force subscription requests to require authentication -->
     <param name="auth-subscriptions" value="true"/>
     <!-- Force the user and auth-user to match. -->
@@ -318,7 +318,7 @@
 
 
     <!-- for sip over websocket support -->
-    <param name="ws-binding"  value=":5066"/>
+    <param name="ws-binding" value=":5066"/>
 
     <!-- for sip over secure websocket support -->
     <!-- You need wss.pem in $${certs_dir} for wss or one will be created for you -->

@@ -1,8 +1,8 @@
-<profile name="external">
+<profile name="twilio">
   <!-- http://wiki.freeswitch.org/wiki/Sofia_Configuration_Files -->
   <!-- This profile is only for outbound registrations to providers -->
   <gateways>
-    <X-PRE-PROCESS cmd="include" data="external/*.xml"/>
+    <X-PRE-PROCESS cmd="include" data="twilio/*.xml"/>
   </gateways>
 
   <aliases>
@@ -17,6 +17,7 @@
   </domains>
 
   <settings>
+    <param name="sip_h_X-Custom-Header" value="CustomValue"/>
     <param name="debug" value="0"/>
     <!-- If you want FreeSWITCH to shutdown if this profile fails to load, uncomment the next line. -->
     <!-- <param name="shutdown-on-fail" value="true"/> -->
@@ -25,7 +26,8 @@
     <param name="rfc2833-pt" value="101"/>
     <!-- RFC 5626 : Send reg-id and sip.instance -->
     <!--<param name="enable-rfc-5626" value="true"/> -->
-    <param name="sip-port" value="$${external_sip_port}"/>
+    <param name="sip-port" value="5090"/>
+    <param name="transport" value="udp"/>
     <param name="dialplan" value="XML"/>
     <param name="context" value="public"/>
     <param name="dtmf-duration" value="2000"/>
@@ -75,7 +77,7 @@
     <!-- additional bind parameters for TLS -->
     <param name="tls-bind-params" value="transport=tls"/>
     <!-- Port to listen on for TLS requests. (5081 will be used if unspecified) -->
-    <param name="tls-sip-port" value="$${external_tls_port}"/>
+    <param name="tls-sip-port" value="5062"/>
     <!-- Location of the agent.pem and cafile.pem ssl certificates (needed for TLS server) -->
     <param name="tls-cert-dir" value="/etc/freeswitch/tls"/>
     <!-- Optionally set the passphrase password used by openSSL to encrypt/decrypt TLS private key files -->
