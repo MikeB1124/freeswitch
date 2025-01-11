@@ -1,0 +1,22 @@
+[Unit]
+Description=FreeSWITCH Service
+After=network.target
+
+[Service]
+Type=forking
+Environment=DAEMON_OPTS="-ncwait -nonat"
+ExecStartPre=/bin/chown -R root:root /var/log/freeswitch /etc/freeswitch /usr/local/share/freeswitch /usr/local/bin/freeswitch /run/freeswitch /var/run/freeswitch
+ExecStart=/usr/local/bin/freeswitch -u root -g root $DAEMON_OPTS
+ExecStop=/usr/local/bin/freeswitch -stop
+ExecReload=/usr/local/bin/freeswitch -nc reload
+PIDFile=/var/run/freeswitch/freeswitch.pid
+Restart=on-failure
+User=root
+Group=root
+LimitCORE=infinity
+LimitNOFILE=100000
+LimitNPROC=60000
+UMask=007
+
+[Install]
+WantedBy=multi-user.target
