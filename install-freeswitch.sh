@@ -87,5 +87,5 @@ git clone https://github.com/MikeB1124/freeswitch.git /tmp/freeswitch \
     && make moh-install
 
 cp /tmp/freeswitch/freeswitch.service /etc/systemd/system/freeswitch.service
-daemon-reload
 systemctl enable freeswitch
+systemctl start freeswitch
