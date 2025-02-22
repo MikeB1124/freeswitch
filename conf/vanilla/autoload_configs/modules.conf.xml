@@ -20,7 +20,7 @@
     <!-- <load module="mod_xml_scgi"/> -->
 
     <!-- Event Handlers -->
-    <!-- <load module="mod_amqp"/> -->
+    <load module="mod_amqp"/>
     <load module="mod_cdr_csv"/>
     <!-- <load module="mod_cdr_sqlite"/> -->
     <!-- <load module="mod_event_multicast"/> -->
@@ -123,7 +123,7 @@
     <!-- <load module="mod_v8"/> -->
     <!-- <load module="mod_perl"/> -->
     <!-- <load module="mod_python"/> -->
-    <!-- <load module="mod_python3"/> -->
+    <load module="mod_python3"/>
     <!-- <load module="mod_java"/> -->
     <load module="mod_lua"/>
 
