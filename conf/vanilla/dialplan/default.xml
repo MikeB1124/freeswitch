@@ -12,17 +12,34 @@
 <!-- http://wiki.freeswitch.org/wiki/Dialplan_XML -->
 <include>
   <context name="default">
-	  
-   <extension name="twilio-outbound">
-    <condition field="destination_number" expression="^(\d{10})$">
-	    <action application="set" data="effective_caller_id_number=+18775357697"/>
-	<action application="set" data="effective_caller_id_name=+18775357697"/>
-	<action application="set" data="outbound_caller_id_name=+18775357697"/>
-     <action application="set" data="outbound_caller_id_number=+18775357697"/>
-     <action application="set" data="caller_id_number=+18775357697"/>
-     <action application="bridge" data="sofia/gateway/twilio/+1$1"/>
-    </condition>
-   </extension>
+
+    <extension name="twilio-outbound">
+      <condition field="destination_number" expression="^(\d{10})$">
+        <action application="set" data="effective_caller_id_number=+18775357697"/>
+        <action application="set" data="effective_caller_id_name=+18775357697"/>
+        <action application="set" data="outbound_caller_id_name=+18775357697"/>
+        <action application="set" data="outbound_caller_id_number=+18775357697"/>
+        <action application="set" data="caller_id_number=+18775357697"/>
+        <action application="enable_heartbeat" data="10"/>
+        <action application="bridge" data="sofia/gateway/twilio-primary/+1$1"/>
+      </condition>
+    </extension>
+
+    <extension name="twilio-outbound-secure">
+      <condition field="destination_number" expression="^9(\d{10})$">
+        <action application="export" data="rtp_secure_media=true:AES_CM_128_HMAC_SHA1_80"/>
+        <action application="export" data="sdp_secure_savp_only=false"/>
+        <action application="set" data="sip_h_X-cid=${sip_call_id}"/>
+        <action application="set" data="effective_caller_id_number=+18775357697"/>
+        <action application="set" data="effective_caller_id_name=+18775357697"/>
+        <action application="set" data="outbound_caller_id_name=+18775357697"/>
+        <action application="enable_heartbeat" data="10"/>
+        <action application="set" data="outbound_caller_id_number=+18775357697"/>
+        <action application="set" data="caller_id_number=+18775357697"/>
+        <action application="bridge" data="sofia/gateway/twilio-secure/+1$1"/>
+      </condition>
+    </extension>
+
 
   </context>
 </include>

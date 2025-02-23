@@ -35,6 +35,7 @@
     <param name="outbound-codec-prefs" value="$${outbound_codec_prefs}"/>
     <param name="hold-music" value="$${hold_music}"/>
     <param name="rtp-timer-name" value="soft"/>
+    <param name="rtcp-audio-interval-msec" value="5000"/>
     <!--<param name="enable-100rel" value="true"/>-->
     <!--<param name="disable-srv503" value="true"/>-->
     <!-- This could be set to "passive" -->
