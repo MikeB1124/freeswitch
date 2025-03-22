@@ -9,7 +9,7 @@ applications/mod_av
 applications/mod_commands
 # applications/mod_helloworld
 applications/mod_conference
-#applications/mod_curl
+applications/mod_curl
 #applications/mod_cv
 applications/mod_db
 #applications/mod_directory
